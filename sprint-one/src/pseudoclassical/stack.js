@@ -12,12 +12,10 @@ Stack.prototype.push = function (value) {
 };
 
 Stack.prototype.pop = function () {
-  if (this.storage.keys !== 0) {
-    let ret = this.storage[this.top];
-    delete this.storage[this.top];
-    this.top--;
-    return ret;
-  }
+  let ret = this.storage[this.top];
+  delete this.storage[this.top];
+  this.top--;
+  return ret;
 };
 
 Stack.prototype.size = function () {
