@@ -4,21 +4,18 @@ class Queue {
   constructor() {
     this.first = 0;
     this.last = 0;
+    this.storage = [];
   }
 
-  enqueue(value) {
-    this[this.last] = value;
-    this.last += 1;
+  enqueue (value) {
+    this.storage.push(value);
   }
 
-  dequeue() {
-    var deleteElement = this[this.first];
-    delete this[this.first];
-    this.first += 1;
-    return deleteElement;
+  dequeue () {
+    return this.storage.shift();
   }
 
-  size() {
-    return this.last >= this.first ? this.last - this.first : 0;
+  size () {
+    return this.storage.length;
   }
 }
