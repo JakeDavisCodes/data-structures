@@ -12,11 +12,7 @@ Graph.prototype.addNode = function(node) {
 
 // Return a boolean value indicating if the value passed to contains is represented in the graph.
 Graph.prototype.contains = function(node) {
-  if (this.storage[node] !== undefined) {
-    return true;
-  }
-  return false;
-
+  return this.storage[node] !== undefined;
 };
 
 // Removes a node from the graph.
@@ -43,25 +39,28 @@ Graph.prototype.addEdge = function(fromNode, toNode) {
 
 // Remove an edge between any two specified (by value) nodes.
 Graph.prototype.removeEdge = function(fromNode, toNode) {
+  if (!this.hasEdge(fromNode, toNode)) {
+    return;
+  }
   this.storage[fromNode].splice(this.storage[fromNode].indexOf(toNode), 1);
   this.storage[toNode].splice(this.storage[toNode].indexOf(fromNode), 1);
 };
 
 // Pass in a callback which will be executed on each node of the graph.
-Graph.prototype.forEachNode = function(cb) {
+Graph.prototype.forEachNode = function(callbackFunc) {
   for (let key in this.storage) {
-    cb(key);
+    callbackFunc(key);
   }
 };
 
 /*
  * Complexity: What is the time complexity of the above functions?
  * addNode O(1)
- * removeNode O(n)
- * hasEdge O(n)
+ * removeNode O(N)
+ * hasEdge O(N)
  * addEdge O(1)
- * removeEdge O(n)
- * forEachNode O(n)
+ * removeEdge O(N)
+ * forEachNode O(N)
  */
 
 

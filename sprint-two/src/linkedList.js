@@ -47,8 +47,7 @@ var Node = function(value) {
  * Complexity: What is the time complexity of the above functions?
  * addToTail -> O(1)
  * removeHead -> O(1)
- * contains -> O(n)
- * loop O(n) O(n) -> O(n)
- * longest O(2^n) O(n^2) O(nlogn) O(n) O(logn) O(1) shortest
- *
+ * contains -> O(N)
+ * loop O(N) O(N) -> O(N)
+ * longest O(2^N) O(N^2) O(NlogN) O(N) O(logN) O(1) shortest
  */
