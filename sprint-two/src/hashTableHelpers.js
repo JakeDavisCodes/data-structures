@@ -15,19 +15,26 @@ var LimitedArray = function(limit) {
   var storage = [];
 
   var limitedArray = {};
-  limitedArray.get = function(index) {
+  limitedArray.get = function(index) { // returns value at index
     checkLimit(index);
     return storage[index];
   };
-  limitedArray.set = function(index, value) {
+  limitedArray.set = function(index, value) { // sets value at index
     checkLimit(index);
     storage[index] = value;
   };
-  limitedArray.each = function(callback) {
+  limitedArray.each = function(callback) { // runs callBack on all values
     for (var i = 0; i < storage.length; i++) {
       callback(storage[i], i, storage);
     }
   };
+
+  // limitedArray.doubleLimit = function () {
+  //   limit *= 2;
+  // };
+  // limitedArray.halfLimit = function () {
+  //   limit /= 2;
+  // };
 
   var checkLimit = function(index) {
     if (typeof index !== 'number') {

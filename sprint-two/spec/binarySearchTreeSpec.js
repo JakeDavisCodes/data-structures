@@ -37,4 +37,13 @@ describe('binarySearchTree', function() {
     binarySearchTree.depthFirstLog(func);
     expect(array).to.eql([5, 2, 3, 7]);
   });
+
+  it('should push node value from top to bottom and left to right at each level', function() {
+    binarySearchTree.insert(2);
+    binarySearchTree.insert(8);
+    binarySearchTree.insert(1);
+    binarySearchTree.insert(7);
+    var breadthFirstLogArray = binarySearchTree.breadthFirstLog();
+    expect(breadthFirstLogArray).to.eql([5, 2, 8, 1, 7]);
+  });
 });

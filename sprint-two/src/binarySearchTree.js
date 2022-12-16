@@ -82,6 +82,44 @@ BinarySearchTreeMethod.depthFirstLog = function(cb) {
     this.right.depthFirstLog(cb);
   }
 };
+
+BinarySearchTreeMethod.breadthFirstLog = function (depth) {
+  /*
+  create queue array, with first value as start
+  create result array
+
+  while queue has items
+
+    add queue[0] left and right to queue
+    push queue[0] to results
+    shift queue [0]
+
+  log all in results
+
+  */
+
+  var queue = [this];
+  var results = [];
+
+  while (queue.length > 0) {
+
+    if (queue[0].left) {
+      queue.push(queue[0].left);
+    }
+    if (queue[0].right) {
+      queue.push(queue[0].right);
+    }
+
+    results.push(queue[0].value);
+    queue.shift();
+  }
+
+  for (let i = 0; i < results.length; i++) {
+    console.log(results[i]);
+  }
+  return results;
+};
+
 /*
  * Complexity: What is the time
    complexity of the above functions?
